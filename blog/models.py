@@ -169,8 +169,8 @@ class BlogPage(Page):
     search_fields = Page.search_fields + (
         index.SearchField('body'),
     )
-    blog_categories = models.ManyToManyField(
-        BlogCategory, through=BlogCategoryBlogPage, blank=True)
+    # blog_categories = models.ManyToManyField(
+    #    BlogCategory, through=BlogCategoryBlogPage, blank=True)
 
     settings_panels = [
         MultiFieldPanel([
