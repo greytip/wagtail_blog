@@ -92,7 +92,7 @@ class BlogIndexPage(Page):
 class BlogCategory(models.Model):
     name = models.CharField(
         max_length=80, unique=True, verbose_name=_('Category Name'))
-    slug = models.SlugField(unique=True, max_length=80)
+#    slug = models.SlugField(unique=True, max_length=80)
     parent = models.ForeignKey(
         'self', blank=True, null=True, related_name="children",
         help_text=_(
@@ -125,8 +125,8 @@ class BlogCategory(models.Model):
                 raise ValidationError('Cannot have circular Parents.')
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
+#        if not self.slug:
+#            self.slug = slugify(self.name)
         return super(BlogCategory, self).save(*args, **kwargs)
 
 
