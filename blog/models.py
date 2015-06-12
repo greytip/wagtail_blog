@@ -92,7 +92,7 @@ class BlogIndexPage(Page):
 class BlogCategory(models.Model):
     name = models.CharField(
         max_length=80, unique=True, verbose_name=_('Category Name'))
-#    slug = models.SlugField(unique=True, max_length=80)
+    slug = models.SlugField(unique=True, max_length=80)
     parent = models.ForeignKey(
         'self', blank=True, null=True, related_name="children",
         help_text=_(
@@ -110,6 +110,7 @@ class BlogCategory(models.Model):
     panels = [
         FieldPanel('name'),
         FieldPanel('parent'),
+        FieldPanel('slug'),
         FieldPanel('description'),
     ]
 
