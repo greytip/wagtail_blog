@@ -152,9 +152,9 @@ class BlogTag(Tag):
 
 class BlogPage(Page):
     body = RichTextField(verbose_name=_('body'))
+    summary = RichTextField(verbose_name=_('summary'))
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
-    date = models.DateField(
-        _("Post date"), default=datetime.datetime.today,
+    date = models.DateField(_("Post date"), default=datetime.datetime.today,
         help_text=_("This date may be displayed on the blog post. It is not "
                     "used to schedule posts to go live at a later date.")
     )
@@ -214,4 +214,5 @@ BlogPage.content_panels = [
     ], heading="Tags and Categories"),
     ImageChooserPanel('header_image'),
     FieldPanel('body', classname="full"),
+    FieldPanel('summary', classname="full"),
 ]
